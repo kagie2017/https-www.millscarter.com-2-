@@ -679,12 +679,48 @@ h3 { font-size: var(--step-1); }
 
 @media (max-width: 900px) { .contact-grid .form { order: -1; } }
 
-/* Sectors (construction + energy) on the homepage */
-.sectors { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); }
-.sector-media { display: block; margin-bottom: 24px; border-radius: var(--radius); overflow: hidden; }
-.sector-media img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; transition: transform 0.4s ease; }
-@media (hover: hover) { .sector-media:hover img { transform: scale(1.03); } }
-.sector h3 { font-size: var(--step-2); font-stretch: 110%; margin-bottom: 10px; }
-.sector p { color: #b7c4ca; max-width: 34em; }
-.sector .text-link { display: inline-block; margin-top: 16px; color: var(--white); }
-@media (max-width: 860px) { .sectors { grid-template-columns: 1fr; gap: 48px; } }
+/* Sectors (construction + energy) on the homepage: photo + "supply sheet" rating plate */
+.sectors-band { background: var(--ink); color: var(--white); padding-top: clamp(64px, 9vw, 128px); }
+.sectors-head { display: grid; gap: 16px; margin-bottom: clamp(40px, 6vw, 72px); }
+.sectors-head > * { max-width: 34em; }
+.sectors-head h2, .sectors-head p { margin: 0; }
+.sectors-band .muted { color: #b7c4ca; }
+.sector-row { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.sector-row.flip .sector-photo { order: 2; }
+.sector-photo { position: relative; min-height: 320px; background: var(--fjord-deep); }
+.sector-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sector-body { align-self: center; width: 100%; max-width: 600px; padding: clamp(40px, 6vw, 88px) clamp(20px, 5vw, 72px); }
+.sector-row.flip .sector-body { justify-self: end; }
+.sector-body h3 { font-size: var(--step-3); font-stretch: 115%; line-height: 1; margin-bottom: 16px; }
+.sector-body > p { color: #b7c4ca; max-width: 32em; }
+
+.plate {
+  margin: 28px 0 32px;
+  padding: 22px 28px 14px;
+  border: 1.5px solid rgba(242, 183, 5, 0.55);
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 11px 11px, var(--signal) 2.5px, transparent 3.5px),
+    radial-gradient(circle at calc(100% - 11px) 11px, var(--signal) 2.5px, transparent 3.5px),
+    radial-gradient(circle at 11px calc(100% - 11px), var(--signal) 2.5px, transparent 3.5px),
+    radial-gradient(circle at calc(100% - 11px) calc(100% - 11px), var(--signal) 2.5px, transparent 3.5px),
+    rgba(255, 255, 255, 0.035);
+}
+.plate-title { margin: 0 0 10px; padding-bottom: 10px; border-bottom: 1.5px solid rgba(242, 183, 5, 0.55); font-size: var(--step--1); font-weight: 700; font-stretch: 125%; color: var(--signal); }
+.plate dl { margin: 0; }
+.plate dl > div { display: grid; grid-template-columns: 6.5em 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px dashed rgba(255, 255, 255, 0.16); }
+.plate dl > div:last-child { border-bottom: 0; }
+.plate dt { font-stretch: 75%; font-weight: 600; color: #b7c4ca; font-size: 0.95rem; }
+.plate dd { margin: 0; font-size: 0.98rem; }
+
+@media (max-width: 900px) {
+  .sector-row, .sector-row.flip { grid-template-columns: 1fr; min-height: 0; }
+  .sector-row.flip .sector-photo { order: 0; }
+  .sector-photo { aspect-ratio: 16 / 10; min-height: 0; }
+  .sector-row.flip .sector-body { justify-self: start; }
+  .sector-body { max-width: none; padding: 36px var(--gutter) 56px; }
+}
+@media (max-width: 420px) {
+  .plate { padding: 20px 20px 10px; }
+  .plate dl > div { grid-template-columns: 1fr; gap: 2px; }
+}
