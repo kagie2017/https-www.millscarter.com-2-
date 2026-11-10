@@ -32,7 +32,7 @@ Everything in this design uses standard Wix building blocks: sections, strips, t
 
 ## 2. Header and footer (global)
 
-- Header: sticky, white, 1px bottom border. Logo left. Menu right: Home, About, Services (dropdown: All services, Product sourcing, Warehousing, Shipping), Gallery, Contact. Then a "Request a quote" button linking to Contact.
+- Header: sticky, white, 1px bottom border. Logo left. Menu right: Home, About, Services (dropdown: All services, Product sourcing, Warehousing, Shipping, Construction materials, Energy and generators), Gallery, Contact. Then a "Request a quote" button linking to Contact.
 - Remove the old "More" menu item.
 - Footer: Fjord deep background, white logo, four columns: short description, Company links, Services links, Get in touch (email, address, Google Maps link). Bottom line "© 2026 Mills Carter. All rights reserved."
 
@@ -44,18 +44,25 @@ Everything in this design uses standard Wix building blocks: sections, strips, t
 3. "One partner instead of five suppliers": text left, building photo right.
 4. "Why brands work with us" (Paper background): 3 columns with a thin top rule.
 5. "Services and capabilities": 3 alternating image/text rows.
-6. "Our warehouse" (Paper background): 3 warehouse photos linking to Gallery.
-7. CTA strip (Signal background): "Ready to get started?"
+6. "Supplying construction and energy" (Ink background): two side-by-side panels with photo, heading, text and link to each new service page.
+7. "Our warehouse" (Paper background): 3 warehouse photos linking to Gallery.
+8. CTA strip (Signal background): "Ready to get started?"
 
 **About:** page header + photo, What we do, How we're set up (dark), What you can expect, How a project runs (4 numbered steps), CTA.
 
-**Services:** page header, 3 service rows with checklists and "Read more" links, 4-step process, CTA.
+**Services:** page header, 5 service rows with checklists and "Read more" links, 4-step process, CTA.
 
 **Product sourcing / Warehousing / Shipping:** page header with breadcrumb and wide photo, intro split, 3 key points, comparison table (sourcing and shipping), CTA, "Keep exploring" links.
 
+**Construction materials:** page header with cranes photo, examples of materials (checklist), 3 key points (dark), "Who we supply" table, 4-step process, CTA, "Keep exploring" links.
+
+**Energy and generators:** page header with power station photo, examples of equipment (checklist), "Choosing the right generator" table (standby / prime / portable), 3 key points (dark), CTA, "Keep exploring" links.
+
+Photos for these two pages are free Unsplash images; Wix has Unsplash built into its media library, or use the client's own photos.
+
 **Gallery:** use a Wix Pro Gallery with the 3 warehouse photos, lightbox on click.
 
-**Contact:** contact details + Google Maps element on the left, Wix Form on the right with First name, Last name, Email, Company (optional), Topic dropdown, Message. Set the form's notification email to inquiry@millscarter.com and the success message to "Thanks, your message has been sent. We'll get back to you soon."
+**Contact:** contact details + Google Maps element on the left, Wix Form on the right with First name, Last name, Email, Company (optional), Topic dropdown (Product sourcing, Warehousing, Shipping, Construction materials, Energy and generators, Several services, Something else), Message. Set the form's notification email to inquiry@millscarter.com and the success message to "Thanks, your message has been sent. We'll get back to you soon."
 
 ## 4. Link fixes compared to the old site
 

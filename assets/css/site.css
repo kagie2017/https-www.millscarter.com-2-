@@ -1,27 +1,6 @@
 /* Mills Carter — site styles
    Design tokens mirror the Wix Studio theme described in WIX-REBUILD-GUIDE.md */
 
-@font-face {
-  font-family: "Archivo";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  src: url("../fonts/archivo-latin-wdth-normal.woff2") format("woff2-variations"),
-       url("../fonts/archivo-latin-wdth-normal.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: "Archivo";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  src: url("../fonts/archivo-latin-ext-wdth-normal.woff2") format("woff2-variations"),
-       url("../fonts/archivo-latin-ext-wdth-normal.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
 :root {
   --ink: #15232d;
   --fjord: #173f4f;
@@ -213,7 +192,7 @@ h3 { font-size: var(--step-1); }
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  min-width: 240px;
+  min-width: 290px;
   margin: 0;
   padding: 8px;
   list-style: none;
@@ -699,3 +678,13 @@ h3 { font-size: var(--step-1); }
 }
 
 @media (max-width: 900px) { .contact-grid .form { order: -1; } }
+
+/* Sectors (construction + energy) on the homepage */
+.sectors { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); }
+.sector-media { display: block; margin-bottom: 24px; border-radius: var(--radius); overflow: hidden; }
+.sector-media img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; transition: transform 0.4s ease; }
+@media (hover: hover) { .sector-media:hover img { transform: scale(1.03); } }
+.sector h3 { font-size: var(--step-2); font-stretch: 110%; margin-bottom: 10px; }
+.sector p { color: #b7c4ca; max-width: 34em; }
+.sector .text-link { display: inline-block; margin-top: 16px; color: var(--white); }
+@media (max-width: 860px) { .sectors { grid-template-columns: 1fr; gap: 48px; } }

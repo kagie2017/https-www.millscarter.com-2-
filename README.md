@@ -12,6 +12,8 @@ Static staging version of the redesigned millscarter.com, ready for Vercel. No b
 | `/product-sourcing` | `product-sourcing.html` |
 | `/warehousing` | `warehousing.html` |
 | `/shipping` | `shipping.html` |
+| `/construction-materials` | `construction-materials.html` |
+| `/energy` | `energy.html` |
 | `/gallery` | `gallery.html` |
 | `/contact` | `contact.html` (old `/contact-8` redirects here) |
 | any other URL | `404.html` |
@@ -28,7 +30,7 @@ Every new commit to `main` redeploys automatically.
 
 ## Notes
 
-- Images are the client's own photos, served from their existing Wix media library (`static.wixstatic.com`).
-- Font: Archivo (variable, SIL Open Font License), self-hosted in `assets/fonts`.
+- Images are the client's own photos, served from their existing Wix media library (`static.wixstatic.com`). The construction and energy pages use free photos from Unsplash (`images.unsplash.com`, Unsplash License); swap in the client's own photos when available.
+- Font: Archivo (Google Fonts, SIL Open Font License).
 - Every page has `<meta name="robots" content="noindex">` so the staging site stays out of Google. Remove it only if this code ever goes live.
 - The contact form opens the visitor's email app addressed to inquiry@millscarter.com. In the final Wix build, use a native Wix Form instead (see `WIX-REBUILD-GUIDE.md`).
