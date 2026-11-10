@@ -724,3 +724,35 @@ h3 { font-size: var(--step-1); }
   .plate { padding: 20px 20px 10px; }
   .plate dl > div { grid-template-columns: 1fr; gap: 2px; }
 }
+
+/* Motion --------------------------------------------------------------
+   Small and purposeful: content rises into place as you scroll, the hero
+   settles on load, and the route line draws itself. All of it is skipped
+   for visitors who prefer reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  img { background-color: rgba(127, 144, 152, 0.18); }
+  .brand img, .footer-brand img, .lightbox img { background-color: transparent; }
+  img[loading="lazy"] { transition: opacity 0.5s ease, transform 0.4s ease; }
+  img.img-loading { opacity: 0; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  @keyframes settle { from { transform: scale(1.07); } to { transform: none; } }
+  .hero h1, .hero .lede, .hero .btn-row, .hero-meta,
+  .page-hero .crumbs, .page-hero h1, .page-hero .lede { animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .hero .lede, .page-hero h1 { animation-delay: 0.1s; }
+  .hero .btn-row, .page-hero .lede { animation-delay: 0.2s; }
+  .hero-meta { animation-delay: 0.32s; }
+  .hero-media img { animation: settle 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+  .route-list.reveal-line::before { transform: scaleX(0); transform-origin: left center; transition: transform 1.4s cubic-bezier(0.3, 0.6, 0.2, 1) 0.15s; }
+  .route-list.reveal-line.is-visible::before { transform: none; }
+  @media (max-width: 860px) {
+    .route-list.reveal-line::before { transform: scaleY(0); transform-origin: center top; }
+  }
+
+  .btn { transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease; }
+  .btn:active { transform: translateY(1px); }
+}

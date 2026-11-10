@@ -130,4 +130,44 @@
       window.location.href = href;
     });
   }
+  /* Motion: scroll reveals and image fade-in.
+     Classes are added here, so without JavaScript everything is simply visible. */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduceMotion) {
+    document.querySelectorAll('img[loading="lazy"]').forEach(function (im) {
+      if (im.complete) return;
+      im.classList.add("img-loading");
+      var done = function () { im.classList.remove("img-loading"); };
+      im.addEventListener("load", done);
+      im.addEventListener("error", done);
+    });
+  }
+
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    var revealSelector = [
+      ".section-head", ".route-head", ".sectors-head", ".split > *", ".points > li",
+      ".service-row", ".route-stop", ".steps > li", ".sector-body > *",
+      ".gallery-grid > li", ".cta-inner > *", ".facts", ".related > li",
+      ".contact-card", ".form", ".page-hero-media"
+    ].join(",");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.05, rootMargin: "0px 0px -6% 0px" });
+
+    document.querySelectorAll(revealSelector).forEach(function (el) {
+      var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.style.transitionDelay = Math.min(i, 5) * 90 + "ms";
+      el.classList.add("reveal");
+      io.observe(el);
+    });
+    document.querySelectorAll(".route-list").forEach(function (el) {
+      el.classList.add("reveal-line");
+      io.observe(el);
+    });
+  }
 })();
